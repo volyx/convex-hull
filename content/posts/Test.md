@@ -9,6 +9,7 @@ categories: ["themes", "syntax"]
 aliases: ["migrate-from-jekyl"]
 # ShowToc: true
 # TocOpen: true
+draft: true
 weight: 2
 ---
 
