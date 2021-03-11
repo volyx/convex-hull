@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Squares of a Sorted Array"
-date: "Wed May 27 00:00:00 MSK 2020"
+date: "2020-05-27"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

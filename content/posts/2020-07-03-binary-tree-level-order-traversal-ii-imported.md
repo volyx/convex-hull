@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Binary Tree Level Order Traversal II"
-date: "Fri Jul 03 00:00:00 MSK 2020"
+date: "2020-07-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

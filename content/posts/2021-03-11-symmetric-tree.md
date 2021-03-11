@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "451. Sort Characters By Frequency"
-date: "2021-03-07"
+title:  "101. Symmetric Tree"
+date: "2021-03-11"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "heap"]
+tags:  ["leetcode", "easy", "binary-tree"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,47 +12,32 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-![https://leetcode.com/problems/sort-characters-by-frequency/]
+![https://leetcode.com/problems/symmetric-tree/]
 
-Given a string, sort it in decreasing order based on the frequency of characters.
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+![ex1](/images/2021-03-11-ex1.jpg)
 
 ```txt
 Example 1:
 
-Input:
-"tree"
-
-Output:
-"eert"
-
-Explanation:
-'e' appears twice while 'r' and 't' both appear once.
-So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
-
-Example 2:
-
-Input:
-"cccaaa"
-
-Output:
-"cccaaa"
-
-Explanation:
-Both 'c' and 'a' appear three times, so "aaaccc" is also a valid answer.
-Note that "cacaca" is incorrect, as the same characters must be together.
-
-Example 3:
-
-Input:
-"Aabb"
-
-Output:
-"bbAa"
+Input: root = [1,2,2,3,4,4,3]
+Output: true
 ```
 
-Explanation:
-"bbaA" is also a valid answer, but "Aabb" is incorrect.
-Note that 'A' and 'a' are treated as two different characters.
+![ex2](/images/2021-03-11-ex2.jpg)
+
+```txt
+Example 2:
+
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+```
+
+Constraints:
+
+- The number of nodes in the tree is in the range [1, 1000].
+- -100 <= Node.val <= 100
 
 ```java
 class Solution {

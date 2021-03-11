@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Minimum Path Sum"
-date: "Mon Apr 20 00:00:00 MSK 2020"
+date: "2020-04-20"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

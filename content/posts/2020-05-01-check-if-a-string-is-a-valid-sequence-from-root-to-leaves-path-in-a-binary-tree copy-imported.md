@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree"
-date: "Fri May 01 00:00:00 MSK 2020"
+date: "2020-05-01"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

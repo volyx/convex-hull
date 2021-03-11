@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "921. Minimum Add to Make Parentheses Valid"
-date: "Fri Feb 19 00:00:00 MSK 2021"
+date: "2021-02-19"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "stack"]
 categories: ["leetcode"]

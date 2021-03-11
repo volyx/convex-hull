@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Time Needed to Inform All Employees"
-date: "Wed Sep 16 00:00:00 MSK 2020"
+date: "2020-09-16"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "547. Number of Provinces"
-date: "Sat Jan 16 00:00:00 MSK 2021"
+date: "2021-01-16"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "union-find"]
 categories: ["leetcode"]

@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Pow(x, n)"
-date: "Tue Oct 27 00:00:00 MSK 2020"
+date: "2020-10-27"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

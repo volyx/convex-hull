@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Palindromic Substrings"
-date: "Fri May 15 00:00:00 MSK 2020"
+date: "2020-05-15"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

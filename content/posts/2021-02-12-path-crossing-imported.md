@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1496. Path Crossing"
-date: "Fri Feb 12 00:00:00 MSK 2021"
+date: "2021-02-12"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

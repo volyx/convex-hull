@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1598. Crawler Log Folder"
-date: "Mon Feb 22 00:00:00 MSK 2021"
+date: "2021-02-22"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy", "stack"]
 categories: ["leetcode"]
@@ -28,7 +28,7 @@ The file system starts in the main folder, then the operations in logs are perfo
 
 Return the minimum number of operations needed to go back to the main folder after the change folder operations.
 
-![ex1](/images/2021-02-22-logs-ex1.png)
+![ex1](/images/2021-02-22-logs-ex1.jpg)
 
 ```txt
 Example 1:

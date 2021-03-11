@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Binary Tree Zigzag Level Order Traversal"
-date: "Wed Oct 21 00:00:00 MSK 2020"
+date: "2020-10-21"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

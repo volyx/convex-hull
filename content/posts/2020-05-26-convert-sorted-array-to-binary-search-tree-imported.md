@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Convert Sorted Array to Binary Search Tree"
-date: "Tue May 26 00:00:00 MSK 2020"
+date: "2020-05-26"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

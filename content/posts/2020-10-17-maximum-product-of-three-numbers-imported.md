@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Maximum Product of Three Numbers"
-date: "Sat Oct 17 00:00:00 MSK 2020"
+date: "2020-10-17"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

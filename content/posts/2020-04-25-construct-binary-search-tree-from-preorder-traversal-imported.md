@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Construct Binary Search Tree from Preorder Traversal"
-date: "Sat Apr 25 00:00:00 MSK 2020"
+date: "2020-04-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

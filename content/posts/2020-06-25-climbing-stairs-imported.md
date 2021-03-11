@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Insert delete get random O(1)"
-date: "Thu Jun 25 00:00:00 MSK 2020"
+date: "2020-06-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

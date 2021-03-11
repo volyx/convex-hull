@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Populating Next Right Pointers in Each Node"
-date: "Wed Aug 26 00:00:00 MSK 2020"
+date: "2020-08-26"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

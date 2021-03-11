@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "227. Basic Calculator II"
-date: "Sat Feb 20 00:00:00 MSK 2021"
+date: "2021-02-20"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "stack"]
 categories: ["leetcode"]

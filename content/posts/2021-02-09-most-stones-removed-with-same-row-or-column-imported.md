@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "947. Most Stones Removed with Same Row or Column"
-date: "Tue Feb 09 00:00:00 MSK 2021"
+date: "2021-02-09"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium","union-find"]
 categories: ["leetcode"]

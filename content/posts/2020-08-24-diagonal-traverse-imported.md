@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Diagonal Traverse"
-date: "Mon Aug 24 00:00:00 MSK 2020"
+date: "2020-08-24"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

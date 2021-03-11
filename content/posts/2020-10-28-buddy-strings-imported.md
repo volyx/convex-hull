@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Buddy Strings"
-date: "Wed Oct 28 00:00:00 MSK 2020"
+date: "2020-10-28"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

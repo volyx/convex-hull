@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "997. Find the Town Judge"
-date: "Sat Mar 06 00:00:00 MSK 2021"
+date: "2021-03-06"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy", "graph"]
 categories: ["leetcode"]

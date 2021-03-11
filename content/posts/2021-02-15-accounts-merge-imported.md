@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "721. Accounts Merge"
-date: "Mon Feb 15 00:00:00 MSK 2021"
+date: "2021-02-15"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "union-find"]
 categories: ["leetcode"]

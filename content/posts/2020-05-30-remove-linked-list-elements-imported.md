@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Remove Linked List Elements"
-date: "Sat May 30 00:00:00 MSK 2020"
+date: "2020-05-30"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

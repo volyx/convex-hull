@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Longest Increasing Subsequence"
-date: "Sun Jun 28 00:00:00 MSK 2020"
+date: "2020-06-28"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

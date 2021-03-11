@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Product of Array Except Self"
-date: "Sun Apr 19 00:00:00 MSK 2020"
+date: "2020-04-19"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

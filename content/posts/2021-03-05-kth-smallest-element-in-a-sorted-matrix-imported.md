@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "378. Kth Smallest Element in a Sorted Matrix"
-date: "Fri Mar 05 00:00:00 MSK 2021"
+date: "2021-03-05"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "heap"]
 categories: ["leetcode"]

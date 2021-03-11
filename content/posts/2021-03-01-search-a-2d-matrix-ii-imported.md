@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "240. Search a 2D Matrix II"
-date: "Mon Mar 01 00:00:00 MSK 2021"
+date: "2021-03-01"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "devide-and-conquer"]
 categories: ["leetcode"]
@@ -12,14 +12,14 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[https://leetcode.com/problems/search-a-2d-matrix-ii/](https://leetcode.com/problems/search-a-2d-matrix-ii/)
+![https://leetcode.com/problems/search-a-2d-matrix-ii/]
 
 Write an efficient algorithm that searches for a target value in an m x n integer matrix. The matrix has the following properties:
 
 - Integers in each row are sorted in ascending from left to right.
 - Integers in each column are sorted in ascending from top to bottom.
 
-![ex1](/images/2021-03-01-ex1.jpg)
+![ex1](/images/2021-03-01-ex1.png)
 
 ```txt
 Example 1:
@@ -28,7 +28,7 @@ Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,
 Output: true
 ```
 
-![ex2](/images/2021-03-01-ex2.jpg)
+![ex2](/images/2021-03-01-ex2.png)
 
 ```txt
 Example 2:

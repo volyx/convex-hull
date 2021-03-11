@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Maximal Square"
-date: "Tue May 12 00:00:00 MSK 2020"
+date: "2020-05-12"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

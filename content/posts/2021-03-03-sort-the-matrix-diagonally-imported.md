@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1329. Sort the Matrix Diagonally"
-date: "Wed Mar 03 00:00:00 MSK 2021"
+date: "2021-03-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "sort"]
 categories: ["leetcode"]

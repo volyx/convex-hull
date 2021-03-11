@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Search Insert Position"
-date: "Tue Jun 16 00:00:00 MSK 2020"
+date: "2020-06-16"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

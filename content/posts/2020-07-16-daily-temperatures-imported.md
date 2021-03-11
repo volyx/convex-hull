@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Daily Temperatures"
-date: "Thu Jul 16 00:00:00 MSK 2020"
+date: "2020-07-16"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "mock"]
 categories: ["leetcode"]

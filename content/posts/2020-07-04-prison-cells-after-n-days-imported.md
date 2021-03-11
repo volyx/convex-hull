@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Prison Cells After N Days"
-date: "Sat Jul 04 00:00:00 MSK 2020"
+date: "2020-07-04"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "mock"]
 categories: ["leetcode"]

@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "785. Is Graph Bipartite?"
-date: "Sun Feb 14 00:00:00 MSK 2021"
+date: "2021-02-14"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "union-find"]
 categories: ["leetcode"]

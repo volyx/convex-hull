@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Group Anagrams"
-date: "Thu May 14 00:00:00 MSK 2020"
+date: "2020-05-14"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

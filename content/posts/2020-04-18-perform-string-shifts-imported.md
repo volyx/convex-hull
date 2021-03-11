@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Perform String Shifts"
-date: "Sat Apr 18 00:00:00 MSK 2020"
+date: "2020-04-18"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "mock"]
 categories: ["leetcode"]

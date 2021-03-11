@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Coin Change 2"
-date: "Mon Jun 08 00:00:00 MSK 2020"
+date: "2020-06-08"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

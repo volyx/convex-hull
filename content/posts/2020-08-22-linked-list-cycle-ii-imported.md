@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Linked List Cycle II"
-date: "Sat Aug 22 00:00:00 MSK 2020"
+date: "2020-08-22"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]

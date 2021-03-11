@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Sort Array By Parity"
-date: "Fri Jun 19 00:00:00 MSK 2020"
+date: "2020-06-19"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy", "mock"]
 categories: ["leetcode"]

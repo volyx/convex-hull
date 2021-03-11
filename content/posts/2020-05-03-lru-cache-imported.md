@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "LRU Cache"
-date: "Sun May 03 00:00:00 MSK 2020"
+date: "2020-05-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Subarray Sum Equals K"
-date: "Tue Apr 28 00:00:00 MSK 2020"
+date: "2020-04-28"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

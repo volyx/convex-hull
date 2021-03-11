@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Cousins in Binary Tree"
-date: "Mon May 25 00:00:00 MSK 2020"
+date: "2020-05-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

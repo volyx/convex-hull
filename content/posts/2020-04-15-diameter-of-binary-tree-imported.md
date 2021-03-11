@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Diameter of Binary Tree"
-date: "Wed Apr 15 00:00:00 MSK 2020"
+date: "2020-04-15"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy", "mock"]
 categories: ["leetcode"]

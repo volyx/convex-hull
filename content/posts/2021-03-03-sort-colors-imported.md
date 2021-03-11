@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "75. Sort Colors"
-date: "Wed Mar 03 00:00:00 MSK 2021"
+date: "2021-03-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "sort"]
 categories: ["leetcode"]

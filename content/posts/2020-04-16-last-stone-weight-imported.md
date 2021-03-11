@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Last Stone Weight"
-date: "Thu Apr 16 00:00:00 MSK 2020"
+date: "2020-04-16"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

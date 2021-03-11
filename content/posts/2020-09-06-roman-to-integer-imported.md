@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Roman to Integer"
-date: "Sun Sep 06 00:00:00 MSK 2020"
+date: "2020-09-06"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  " Kth Smallest Element in a BST"
-date: "Mon May 18 00:00:00 MSK 2020"
+date: "2020-05-18"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

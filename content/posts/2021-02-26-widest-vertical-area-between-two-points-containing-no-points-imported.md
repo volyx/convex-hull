@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1637. Widest Vertical Area Between Two Points Containing No Points"
-date: "Fri Feb 26 00:00:00 MSK 2021"
+date: "2021-02-26"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "quick-sort"]
 categories: ["leetcode"]

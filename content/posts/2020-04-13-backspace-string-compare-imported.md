@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Backspace String Compare"
-date: "Mon Apr 13 00:00:00 MSK 2020"
+date: "2020-04-13"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode"]
 categories: ["leetcode"]

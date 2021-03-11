@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "First Bad Version"
-date: "Wed May 20 00:00:00 MSK 2020"
+date: "2020-05-20"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy"]
 categories: ["leetcode"]

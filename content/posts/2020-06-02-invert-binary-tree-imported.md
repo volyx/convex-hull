@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "Invert Binary Tree"
-date: "Tue Jun 02 00:00:00 MSK 2020"
+date: "2020-06-02"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium"]
 categories: ["leetcode"]
