@@ -15,7 +15,8 @@ categories: ["leetcode"]
 Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
 
 Example:
-```
+
+```txt
 Input: 3
 Output: 5
 Explanation:
@@ -29,13 +30,13 @@ Given n = 3, there are a total of 5 unique BST's:
 
 ```
 
-Notes: Catalan's numbers: 
-```
+Notes: Catalan's numbers:
+
+```txt
 C(0) = C(1) = 1
 C(2) = C(1) * C(0) + C(0) * C(1)
 C(3) = C(2) * C(1) + C(1) * C(1) + C(1) * C(2)
 ```
-![catalans](http://quicklatex.com/cache3/ed/ql_40eefdca02335a56d3ccab2eff2aa3ed_l3.png)
 
 Solution:
 
