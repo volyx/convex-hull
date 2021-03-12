@@ -1,4 +1,4 @@
-baseURL: "https://examplesite.com"
+baseURL: "https://convexhull.netlify.app/"
 title: Convex Hull
 paginate: 5
 theme: PaperMod
