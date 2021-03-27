@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Binary Tree Zigzag Level Order Traversal"
 date: "2020-10-21"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium"]
+tags:  ["leetcode", "medium", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
