@@ -65,14 +65,8 @@ Constraints:
  *     TreeNode(int x) { val = x; }
  * }
  */
-
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (q.val > p.val) {
-            TreeNode t = p;
-            p = q;
-            q = t;
-        }
         if (root.val < p.val && root.val < q.val) {
             return lowestCommonAncestor(root.right, p, q);
         }
