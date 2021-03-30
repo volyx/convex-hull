@@ -104,3 +104,53 @@ class Solution {
         return false;
     }
 }
+
+## Solution 2
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+     
+       List<TreeNode> path1 = new ArrayList<>(); 
+       search(root, p.val, path1);
+        
+       List<TreeNode> path2 = new ArrayList<>();
+       search(root, q.val, path2);
+
+       for (int i = Math.min(path1.size(), path2.size()) - 1; i >= 0; i--) {
+            var p1 = path1.get(i);
+            var p2 = path2.get(i);
+            if (p1.val == p2.val) return p1;
+        }
+        return null;
+    }
+    
+    TreeNode search(TreeNode node, int val, List<TreeNode> paths) {
+        if (node == null) return null;
+        
+        paths.add(node);
+        
+        if (node.val == val) {
+            return node;
+        }
+        
+        TreeNode s = search(node.left, val, paths);
+        if (s != null) return s;
+        s = search(node.right, val, paths);
+        if (s != null) return s;
+        paths.remove(node);
+        return null;
+    }
+
+}
+```
+
