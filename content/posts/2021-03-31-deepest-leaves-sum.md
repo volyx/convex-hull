@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1302. Deepest Leaves Sum"
-date: "2021-03-30"
+date: "2021-03-31"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "graph", "bfs"]
 categories: ["leetcode"]
