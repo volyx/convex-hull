@@ -1,6 +1,6 @@
 ---
 author: "volyx"
-title:  "1814. Count Nice Pairs in an Array"
+title:  "872. Leaf-Similar Trees"
 date: "2021-04-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "easy", "tree", "dfs"]
@@ -12,68 +12,109 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[1814. Count Nice Pairs in an Array](https://leetcode.com/problems/count-nice-pairs-in-an-array/)
+[872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees/)
 
-You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions:
+Consider all the leaves of a binary tree, from left to right order, the values of those leaves form a leaf value sequence.
 
-- 0 <= i < j < nums.length
-- nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
+For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).
 
-Return the number of nice pairs of indices. Since that number can be too large, return it modulo 109 + 7.
+Two binary trees are considered leaf-similar if their leaf value sequence is the same.
+
+Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.
 
 ```txt
 Example 1:
 
-Input: nums = [42,11,1,97]
-Output: 2
-Explanation: The two pairs are:
- - (0,3) : 42 + rev(97) = 42 + 79 = 121, 97 + rev(42) = 97 + 24 = 121.
- - (1,2) : 11 + rev(1) = 11 + 1 = 12, 1 + rev(11) = 1 + 11 = 12.
+Input: root1 = [3,5,1,6,2,9,8,null,null,7,4], root2 = [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]
+Output: true
 ```
+
+![ex1](/images/2021-04-03-ex1.png)
 
 ```txt
 Example 2:
 
-Input: nums = [13,10,35,24,76]
-Output: 4
+Input: root1 = [1], root2 = [1]
+Output: true
 ```
+
+![ex2](/images/2021-04-03-ex2.png)
+
+```txt
+Example 3:
+
+Input: root1 = [1], root2 = [2]
+Output: false
+```
+
+![ex2](/images/2021-04-03-ex2.png)
+
+```txt
+Example 4:
+
+Input: root1 = [1,2], root2 = [2,2]
+Output: true
+```
+
+```txt
+Example 5:
+
+Input: root1 = [1,2,3], root2 = [1,3,2]
+Output: false
+```
+
+![ex5](/images/2021-04-03-ex5.png)
 
 Constraints:
 
-- 1 <= nums.length <= 105
-- 0 <= nums[i] <= 109
+- The number of nodes in each tree will be in the range [1, 200].
+- Both of the given trees will have values in the range [0, 200].
 
 ## Solution
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    int MODULO = 1_000_000_007;
-    public int countNicePairs(int[] nums) {
-        Map<Integer, Integer> diffsMap = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int rev = rev(nums[i]);
-            int diff = nums[i] - rev;
-            diffsMap.put(diff, diffsMap.getOrDefault(diff, 0) + 1);
-        }
-        long count = 0;
-        for (var e: diffsMap.entrySet()) {
-            long v = e.getValue();
-            if (v > 1) {
-                v = (v * (v - 1)) / 2;
-                count = (count + v) % MODULO;
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        List<Integer> leaves1 = new ArrayList<>();
+        List<Integer> leaves2 = new ArrayList<>();
+        
+        visit(root1, leaves1);
+        visit(root2, leaves2);
+        
+        if (leaves1.size() != leaves2.size()) return false;
+        
+        for (int i = 0; i < leaves1.size(); i++) {
+            if (!leaves1.get(i).equals(leaves2.get(i))) {
+                return false;
             }
         }
-        return (int) count;
+        return true;
     }
     
-    int rev(int x) {
-        int n = 0;
-        while (x > 0) {
-            int t = x % 10;
-            n = n * 10 + t;
-            x = x / 10;
+    void visit(TreeNode node, List<Integer> leaves) {
+        if (node == null) return;
+        
+        if (node.left == null && node.right == null) {
+            leaves.add(node.val);
+        } else {
+            visit(node.left, leaves);
+            visit(node.right, leaves);
         }
-        return n;
     }
 }
 ```
