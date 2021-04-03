@@ -51,48 +51,22 @@ Constraints:
 ## Solution
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> leaves1 = new ArrayList<>();
-        List<Integer> leaves2 = new ArrayList<>();
+    public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
+        int[] indegree = new int[n];
         
-        visit(root1, leaves1);
-        visit(root2, leaves2);
+        for (var e: edges) {
+            indegree[e.get(1)]++;
+        }
         
-        if (leaves1.size() != leaves2.size()) return false;
-        
-        for (int i = 0; i < leaves1.size(); i++) {
-            if (!leaves1.get(i).equals(leaves2.get(i))) {
-                return false;
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            int v = indegree[i];
+            if (v == 0) {
+                res.add(i);
             }
         }
-        return true;
-    }
-    
-    void visit(TreeNode node, List<Integer> leaves) {
-        if (node == null) return;
-        
-        if (node.left == null && node.right == null) {
-            leaves.add(node.val);
-        } else {
-            visit(node.left, leaves);
-            visit(node.right, leaves);
-        }
+        return res;
     }
 }
 ```
