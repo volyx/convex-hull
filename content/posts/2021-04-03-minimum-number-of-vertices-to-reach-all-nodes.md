@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "1557. Minimum Number of Vertices to Reach All Nodes"
+title:  "872. Leaf-Similar Trees"
 date: "2021-04-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "tree", "count-degree"]
+tags:  ["leetcode", "easy", "tree", "dfs"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,41 +12,63 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[872. Leaf-Similar Trees](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)
+[872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees/)
 
-Given a directed acyclic graph, with n vertices numbered from 0 to n-1, and an array edges where edges[i] = [fromi, toi] represents a directed edge from node fromi to node toi.
+Consider all the leaves of a binary tree, from left to right order, the values of those leaves form a leaf value sequence.
 
-Find the smallest set of vertices from which all nodes in the graph are reachable. It's guaranteed that a unique solution exists.
+For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).
 
-Notice that you can return the vertices in any order.
+Two binary trees are considered leaf-similar if their leaf value sequence is the same.
+
+Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.
 
 ```txt
 Example 1:
 
-Input: n = 6, edges = [[0,1],[0,2],[2,5],[3,4],[4,2]]
-Output: [0,3]
-Explanation: It's not possible to reach all the nodes from a single vertex. From 0 we can reach [0,1,2,5]. From 3 we can reach [3,4,2,5]. So we output [0,3].
+Input: root1 = [3,5,1,6,2,9,8,null,null,7,4], root2 = [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]
+Output: true
 ```
 
-![ex1](/images/2021-04-03-reach-ex1.png)
+![ex1](/images/2021-04-03-ex1.png)
 
 ```txt
 Example 2:
 
-Input: n = 5, edges = [[0,1],[2,1],[3,1],[1,4],[2,4]]
-Output: [0,2,3]
-Explanation: Notice that vertices 0, 3 and 2 are not reachable from any other node, so we must include them. Also any of these vertices can reach nodes 1 and 4.
+Input: root1 = [1], root2 = [1]
+Output: true
 ```
 
-![ex2](/images/2021-04-03-reach-ex2.png)
+![ex2](/images/2021-04-03-ex2.png)
+
+```txt
+Example 3:
+
+Input: root1 = [1], root2 = [2]
+Output: false
+```
+
+![ex2](/images/2021-04-03-ex2.png)
+
+```txt
+Example 4:
+
+Input: root1 = [1,2], root2 = [2,2]
+Output: true
+```
+
+```txt
+Example 5:
+
+Input: root1 = [1,2,3], root2 = [1,3,2]
+Output: false
+```
+
+![ex5](/images/2021-04-03-ex5.png)
 
 Constraints:
 
-- 2 <= n <= 10^5
-- 1 <= edges.length <= min(10^5, n * (n - 1) / 2)
-- edges[i].length == 2
-- 0 <= fromi, toi < n
-- All pairs (fromi, toi) are distinct.
+- The number of nodes in each tree will be in the range [1, 200].
+- Both of the given trees will have values in the range [0, 200].
 
 ## Solution
 
