@@ -1,6 +1,6 @@
 ---
 author: "volyx"
-title:  "1557. Minimum Number of Vertices to Reach All Nodes"
+title:  "872. Leaf-Similar Trees"
 date: "2021-04-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "tree", "count-degree"]

@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "1387. Sort Integers by The Power Value"
+title:  "1557. Minimum Number of Vertices to Reach All Nodes"
 date: "2021-04-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "easy", "tree", "dfs"]
+tags:  ["leetcode", "easy", "graph", "dfs"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,101 +12,61 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[1387. Sort Integers by The Power Value](https://leetcode.com/problems/sort-integers-by-the-power-value/)
+[1557. Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)
 
-The power of an integer x is defined as the number of steps needed to transform x into 1 using the following steps:
+Given a directed acyclic graph, with n vertices numbered from 0 to n-1, and an array edges where edges[i] = [fromi, toi] represents a directed edge from node fromi to node toi.
 
-- if x is even then x = x / 2
-- if x is odd then x = 3 * x + 1
+Find the smallest set of vertices from which all nodes in the graph are reachable. It's guaranteed that a unique solution exists.
 
-For example, the power of x = 3 is 7 because 3 needs 7 steps to become 1 (3 --> 10 --> 5 --> 16 --> 8 --> 4 --> 2 --> 1).
-
-Given three integers lo, hi and k. The task is to sort all integers in the interval [lo, hi] by the power value in ascending order, if two or more integers have the same power value sort them by ascending order.
-
-Return the k-th integer in the range [lo, hi] sorted by the power value.
-
-Notice that for any integer x (lo <= x <= hi) it is guaranteed that x will transform into 1 using these steps and that the power of x is will fit in 32 bit signed integer.
+Notice that you can return the vertices in any order.
 
 ```txt
 Example 1:
 
-Input: lo = 12, hi = 15, k = 2
-Output: 13
-Explanation: The power of 12 is 9 (12 --> 6 --> 3 --> 10 --> 5 --> 16 --> 8 --> 4 --> 2 --> 1)
-The power of 13 is 9
-The power of 14 is 17
-The power of 15 is 17
-The interval sorted by the power value [12,13,14,15]. For k = 2 answer is the second element which is 13.
-Notice that 12 and 13 have the same power value and we sorted them in ascending order. Same for 14 and 15.
+Input: n = 6, edges = [[0,1],[0,2],[2,5],[3,4],[4,2]]
+Output: [0,3]
+Explanation: It's not possible to reach all the nodes from a single vertex. From 0 we can reach [0,1,2,5]. From 3 we can reach [3,4,2,5]. So we output [0,3].
 ```
+
+![ex1](/images/2021-04-03-reach-ex1.png)
 
 ```txt
 Example 2:
 
-Input: lo = 1, hi = 1, k = 1
-Output: 1
+Input: n = 5, edges = [[0,1],[2,1],[3,1],[1,4],[2,4]]
+Output: [0,2,3]
+Explanation: Notice that vertices 0, 3 and 2 are not reachable from any other node, so we must include them. Also any of these vertices can reach nodes 1 and 4.
 ```
 
-```txt
-Example 3:
-
-Input: lo = 7, hi = 11, k = 4
-Output: 7
-Explanation: The power array corresponding to the interval [7, 8, 9, 10, 11] is [16, 3, 19, 6, 14].
-The interval sorted by power is [8, 10, 11, 7, 9].
-The fourth number in the sorted array is 7.
-```
-
-```txt
-Example 4:
-
-Input: lo = 10, hi = 20, k = 5
-Output: 13
-```
-
-```txt
-Example 5:
-
-Input: lo = 1, hi = 1000, k = 777
-Output: 570
-```
+![ex2](/images/2021-04-03-reach-ex2.png)
 
 Constraints:
 
-- 1 <= lo <= hi <= 1000
-- 1 <= k <= hi - lo + 1
+- 2 <= n <= 10^5
+- 1 <= edges.length <= min(10^5, n * (n - 1) / 2)
+- edges[i].length == 2
+- 0 <= fromi, toi < n
+- All pairs (fromi, toi) are distinct.
 
 ## Solution
 
 ```java
 class Solution {
-    Map<Integer, Integer> cache = new HashMap<>();
-    public int getKth(int lo, int hi, int k) {
-        var powIndex = new PriorityQueue<int[]>((a, b) -> {
-            int c = Integer.compare(a[0], b[0]);
-            if (c != 0) return c;
-            return Integer.compare(a[1], b[1]);
-        });
-        cache.put(0, 0);
-        cache.put(1, 0);
-        for (int i = lo; i <= hi; i++) {
-            int steps = power(i);
-            powIndex.add(new int[] {steps, i});
+    public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
+        int[] indegree = new int[n];
+        
+        for (var e: edges) {
+            indegree[e.get(1)]++;
         }
-        while (--k > 0) {
-            powIndex.poll();
+        
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            int v = indegree[i];
+            if (v == 0) {
+                res.add(i);
+            }
         }
-        return powIndex.poll()[1];
+        return res;
     }
-    
-    int power(int x) {
-        if (x == 1) return 0;
-        if (cache.containsKey(x)) {
-             return cache.get(x);
-        }
-        int power = 1 + ((x % 2 == 0) ? power(x / 2) : power( 3 * x + 1));
-        cache.put(x, power);
-        return power;
-    } 
 }
 ```
