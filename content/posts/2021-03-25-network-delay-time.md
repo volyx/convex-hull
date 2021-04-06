@@ -3,7 +3,7 @@ author: "volyx"
 title:  "743. Network Delay Time"
 date: "2021-03-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "grpah", "dijkstra"]
+tags:  ["leetcode", "medium", "grpah", "dijkstra", "bellman-ford"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -99,6 +99,35 @@ class Solution {
             maxTime = Math.max(maxTime, costs[i]);
         }
         return maxTime;
+    }
+}
+
+class Solution {
+    // Belman-Ford
+    public int networkDelayTime(int[][] times, int n, int s) {
+       int[] d = new int[n + 1];
+       Arrays.fill(d, Integer.MAX_VALUE);
+       d[s] = 0;
+       for (int i = 1; i < n + 1; i++) {
+           for (int j = 0; j < times.length; j++) {
+               int[] e = times[j];
+               int a = e[0];
+               int b = e[1];
+               int w = e[2];
+               if (d[a] != Integer.MAX_VALUE) {
+                   d[b] = Math.min(d[b], d[a] + w);
+               }
+               
+           }
+       } 
+        
+       int max = 0; 
+       for (int i = 1; i < d.length; i++) {
+           int t = d[i];
+           if (t == Integer.MAX_VALUE) return -1;
+           max = Math.max(max, t);
+       }  
+       return max;
     }
 }
 ```
