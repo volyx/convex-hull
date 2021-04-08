@@ -34,15 +34,87 @@ Explanation: [[3,1]] is also accepted.
 
 ```java
 class Solution {
-    boolean[] visited = new boolean[10_0000];
-    public boolean canReach(int[] arr, int start) {
-        if (start < 0 || start >= arr.length) return false;
-        if (visited[start]) return false;
-        visited[start] = true;
-        if (arr[start] == 0) return true;
-        int right = start + arr[start];
-        int left = start - arr[start];
-        return canReach(arr, left) || canReach(arr, right);
+     
+     // Brute Force, many DFS , O(E * (N + E)) Time Limit Exceeded
+     public List<List<Integer>> criticalConnections2(int n, List<List<Integer>> connections) {
+         List<List<Integer>> res = new ArrayList<>();
+         for (int skip = 0; skip < connections.size(); skip++) {
+             boolean[] visited = new boolean[n];
+             int count = 0;
+             for (int i = 0; i < n; i++) {
+                 if (!visited[i]) {
+                     dfs1(i, skip, connections, visited);
+                     count++;    
+                 }
+             }
+             if (count != 1) {
+                 res.add(connections.get(skip));
+             }
+         }
+         return res;
+     }
+    
+    void dfs1(int i, int skip, List<List<Integer>> connections, boolean[] visited) {
+        visited[i] = true;
+        
+        for (int edgeIndex = 0; edgeIndex < connections.size(); edgeIndex++) {
+            if (edgeIndex == skip) continue;
+            
+            List<Integer> edge = connections.get(edgeIndex);
+            
+            int a = edge.get(0);
+            int b = edge.get(1);
+            
+            if (a == i && !visited[b]) {
+                dfs1(b, skip, connections, visited);
+            }
+            
+            if (b == i && !visited[a]) {
+                dfs1(a, skip, connections, visited);
+            }
+        }
+    }
+    
+    
+    List<Integer>[] G;
+    int[] disc;
+    int[] low;
+    List<List<Integer>> res = new ArrayList<>();
+    
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {        
+        disc = new int[n];
+        low = new int[n];
+        G = build(n, connections);
+        dfs(0, -1, 1);
+        return res;
+    }
+    
+    void dfs(int node, int parent, int time) {
+        disc[node] = time;
+        low[node] = time;
+        
+        for (int n : G[node]) {
+            if (n == parent) continue;
+            if (disc[n] == 0) {
+                dfs(n, node, ++time);
+            }
+            low[node] = Math.min(low[node], low[n]);
+            if (disc[node] < low[n]) {
+               res.add(Arrays.asList(node, n));
+            }
+        }
+    }
+    
+    List<Integer>[] build(int n, List<List<Integer>> connections) {
+        G = new List[n];
+        for (int i = 0; i < n; i++) {
+            G[i] = new ArrayList<>();
+        }
+        for (var con: connections) {
+            G[con.get(0)].add(con.get(1));
+            G[con.get(1)].add(con.get(0));
+        }
+        return G;
     }
 }
 ```
