@@ -49,17 +49,10 @@ class Solution {
         for (int i = 0; i < len1; i++) {
             count1[s1.charAt(i)]++;
         }
-        if (Arrays.equals(count1, count2)) {
-            return true;
-        }
-        
-        int window = 0;
         for (int i = 0; i < len2; i++) {
             count2[s2.charAt(i)]++;
-            window++;
-            int prev = i - len1;
-            if (window > len1 && prev >= 0) {
-                count2[s2.charAt(prev)]--;
+            if (i >= len1) {
+                count2[s2.charAt(i - len1)]--;
             }
             if (Arrays.equals(count1, count2)) {
                 return true;
