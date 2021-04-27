@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "1828. Queries on Number of Points Inside a Circle"
+title:  "1016. Binary String With Substrings Representing 1 To N"
 date: "2021-04-17"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "easy", "array"]
+tags:  ["leetcode", "medium", "string", "rabin-karp"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,72 +12,83 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[1828. Queries on Number of Points Inside a Circle](https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/)
+[1016. Binary String With Substrings Representing 1 To N](https://leetcode.com/problems/binary-string-with-substrings-representing-1-to-n/)
 
-You are given an array points where points[i] = [xi, yi] is the coordinates of the ith point on a 2D plane. Multiple points can have the same coordinates.
-
-You are also given an array queries where queries[j] = [xj, yj, rj] describes a circle centered at (xj, yj) with a radius of rj.
-
-For each query queries[j], compute the number of points inside the jth circle. Points on the border of the circle are considered inside.
-
-Return an array answer, where answer[j] is the answer to the jth query.
+Given a binary string S (a string consisting only of '0' and '1's) and a positive integer N, return true if and only if for every integer X from 1 to N, the binary representation of X is a substring of S.
 
 ```txt
 Example 1:
 
-Input: points = [[1,3],[3,3],[5,3],[2,2]], queries = [[2,3,1],[4,3,1],[1,1,2]]
-Output: [3,2,2]
-Explanation: The points and circles are shown above.
-queries[0] is the green circle, queries[1] is the red circle, and queries[2] is the blue circle.
+Input: S = "0110", N = 3
+Output: true
 ```
-
-![ex1](/images/2021-04-17-ex1.png)
 
 ```txt
 Example 2:
 
-Input: points = [[1,1],[2,2],[3,3],[4,4],[5,5]], queries = [[1,2,2],[2,2,2],[4,3,2],[4,3,3]]
-Output: [2,3,2,4]
-Explanation: The points and circles are shown above.
-queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is purple.
+Input: S = "0110", N = 4
+Output: false
 ```
 
-![ex2](/images/2021-04-17-ex2.png)
+Note:
 
-Constraints:
-
-- 1 <= points.length <= 500
-- points[i].length == 2
-- 0 <= x​​​​​​i, y​​​​​​i <= 500
-- 1 <= queries.length <= 500
-- queries[j].length == 3
-- 0 <= xj, yj <= 500
-- 1 <= rj <= 500
-- All coordinates are integers.
+- 1 <= S.length <= 1000
+- 1 <= N <= 10^9
 
 ## Solution
 
 ```java
 class Solution {
-    public int[] countPoints(int[][] points, int[][] queries) {
-        int[] counts = new int[queries.length];
-        for (int i = 0; i < queries.length; i++) {
-            for (int[] p: points) {
-                if (isInside(queries[i], p)) counts[i]++;
+    public boolean queryString(String S, int N) {
+        for (int i = 1; i <= N; i++) {
+            String binary = Integer.toBinaryString(i);
+            
+            if (!searchRK(S, binary)) {
+                return false;
             }
+            
         }
-        return counts;
+        return true;
     }
     
-    boolean isInside(int[] q, int[] p) {
-        int xc = q[0];
-        int yc = q[1];
-        int r = q[2];
+    boolean search(String s, String p) {
+        return s.contains(p);
+    }
+    
+    boolean searchRK(String s, String p) {
+        int n = s.length();
+        int m = p.length();
+        int x = 3;
         
-        int x = p[0];
-        int y = p[1];
+        int ht = hash(p, 0, m, x, m);
+        int hs = hash(s, 0, m, x, m);
         
-        return ((x - xc) * (x - xc) + (y - yc) * (y - yc)) <= r * r;
+        for (int i = 0; i < n - m; i++) {
+            if (hs == ht) {
+                return true;
+            }
+            hs = (hs * x - code(s, i) * pow(x, m) + code(s, i + m));
+        }
+        
+        return ht == hs;
+    }
+    
+    int code(String s, int i) {
+        return s.charAt(i) - '0';
+    }
+    
+    static int pow(int a, int b) {
+        return (int) Math.pow(a, b);
+    }
+    
+    int hash(String str, int s, int e, int x, int m) {
+        int h = 0;
+        int degree = m - 1;
+        for (int i = s; i < e; i++) {
+            h = h + code(str, i) * pow(x, degree);
+            degree--;
+        }
+        return h;
     }
 }
 ```
