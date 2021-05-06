@@ -3,7 +3,7 @@ author: "volyx"
 title:  "567. Permutation in String"
 date: "2021-04-27"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "string"]
+tags:  ["leetcode", "medium", "string", "rolling-hash"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -59,6 +59,34 @@ class Solution {
             }
         }
         return false;
+    }
+
+        public boolean checkInclusion_RollingHash(String s1, String s2) {
+        int len1 = s1.length();
+        int len2 = s2.length();
+        if (len1 > len2) return false;
+        int hash1 = 0;
+        int hash2 = 0;
+        for (int i = 0; i < len1; i++) {
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
+            hash1 += pow(c1);
+            hash2 += pow(c2);
+        }
+        if (hash1 == hash2) {
+            return true;
+        }
+        for (int i = len1; i < len2; i++) {
+            hash2 = hash2 - pow(s2.charAt(i - len1)) + pow(s2.charAt(i)); 
+            if (hash1 == hash2) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    int pow(int v) {
+        return (int) Math.pow(v, 3);
     }
 }
 ```
