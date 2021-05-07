@@ -51,7 +51,7 @@ class Solution {
         Trie trie = new Trie('#');
         trie.isWord = true;
         for (String word: words) {
-            int c = trie.insert(word);
+            trie.insert(word);
         }
         dfs(trie, "", 0);
         return longest;
@@ -84,23 +84,18 @@ class Solution {
             this.symbol = symbol;
         }
         
-        int insert(String word) {
-            int counter = 0;
+        void insert(String word) {
             Trie node = this;
             int n = word.length();
             for (char c: word.toCharArray()) {
                 Trie curr = node.next[c];
                 if (curr == null) {
                     curr = new Trie(c);
-                } else {
-                    if (curr.isWord) counter++;
-                }
+                } 
                 node.next[c] = curr;
                 node = curr;
             }
             node.isWord = true;
-            counter++;
-            return counter;
         }
     }   
 }
