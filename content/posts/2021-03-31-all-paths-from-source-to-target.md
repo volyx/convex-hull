@@ -3,7 +3,7 @@ author: "volyx"
 title:  "797. All Paths From Source to Target"
 date: "2021-03-31"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "graph", "dfs"]
+tags:  ["leetcode", "medium", "graph", "dfs", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -87,6 +87,41 @@ class Solution {
             }
         }
         paths.remove(paths.size() - 1);
+    }
+}
+```
+
+## Solution 08.05.2021
+
+```java
+class Solution {
+    
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        int[] visited = new int[graph.length];
+        dfs(0, graph, visited, path, res);
+        return res;
+    }
+    
+    void dfs(int v, 
+             int[][] graph, 
+             int[] visited, List<Integer> path, List<List<Integer>> res) {
+        
+        if (visited[v] == 1) return;
+        
+        visited[v] = 1;
+        path.add(v);
+        
+        if (v == graph.length - 1) {
+            res.add(List.copyOf(path));
+        }
+        
+        for (int e: graph[v]) {
+            dfs(e, graph, visited, path, res);
+        }
+        visited[v] = 0;
+        path.remove(path.size() - 1);
     }
 }
 ```
