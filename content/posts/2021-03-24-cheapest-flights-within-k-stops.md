@@ -3,7 +3,7 @@ author: "volyx"
 title:  "787. Cheapest Flights Within K Stops"
 date: "2021-03-24"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "grpah", "dijkstra"]
+tags:  ["leetcode", "medium", "graph", "dijkstra"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
