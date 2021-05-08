@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Verifying an Alien Dictionary"
 date: "2020-06-23"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "easy", "2times"]
+tags:  ["leetcode", "easy", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]

@@ -3,7 +3,7 @@ author: "volyx"
 title:  "743. Network Delay Time"
 date: "2021-03-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "grpah", "dijkstra", "bellman-ford"]
+tags:  ["leetcode", "medium", "graph", "dijkstra", "bellman-ford"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
