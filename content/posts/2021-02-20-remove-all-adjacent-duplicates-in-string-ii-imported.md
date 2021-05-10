@@ -3,7 +3,7 @@ author: "volyx"
 title:  "1209. Remove All Adjacent Duplicates in String II"
 date: "2021-02-20"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "stack"]
+tags:  ["leetcode", "medium", "stack", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -76,5 +76,42 @@ class Solution {
             }
         }
         return new String(stack, 0, size);
+    }
+
+    public String removeDuplicates2(String s, int k) {
+        char[] arr = s.toCharArray();
+        List<Pair> stack = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            char c = arr[i];
+            if (stack.size() > 0) {
+                Pair prev = stack.get(stack.size() - 1);
+                if (prev.c == c) {
+                    if (prev.count + 1 == k) {
+                        stack.remove(stack.size() - 1);
+                    } else {
+                        prev.count++;
+                    }
+                } else {
+                    stack.add(new Pair(c, 1));
+                }
+            } else {
+                stack.add(new Pair(c, 1));
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Pair p: stack) {
+             for (int i = 0; i < p.count; i++)
+                sb.append(p.c);
+        }
+        return sb.toString();
+    }
+    
+    class Pair {
+        char c;
+        int count;
+        public Pair(char c, int count) {
+            this.c = c;
+            this.count = count;
+        }
     }
 }
