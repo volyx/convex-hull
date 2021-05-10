@@ -1,7 +1,7 @@
 ---
 author: "volyx"
 title:  "1208. Get Equal Substrings Within Budget"
-date: "2021-05-10   "
+date: "2021-05-10"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "string", "sliding-window"]
 categories: ["leetcode"]
