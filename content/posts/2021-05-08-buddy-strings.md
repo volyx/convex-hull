@@ -53,7 +53,7 @@ Output: true
 
 Constraints:
 
-- 1 <= a.length, b.length <= 2 * 104
+- 1 <= a.length, b.length <= 2 * 10^4
 - a and b consist of lowercase letters.
 
 ## Solution

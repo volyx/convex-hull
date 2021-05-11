@@ -3,7 +3,7 @@ author: "volyx"
 title:  "215. Kth Largest Element in an Array"
 date: "2021-03-05"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "heap"]
+tags:  ["leetcode", "medium", "heap", "quick-sort"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -102,3 +102,125 @@ class Solution {
         }
     }
 }
+```
+
+## Solution 2
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int n = nums.length;
+        sort(nums, 0, n - 1);
+        return nums[n - k];
+    }
+    
+    void sort(int[] nums, int lo, int hi) {
+        if (lo >= hi) return;
+        int j = partition(nums, lo, hi);
+        sort(nums, lo, j - 1);
+        sort(nums, j + 1, hi);
+    }
+
+    int partition(int[] nums, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
+        
+        while (true) {
+            while (nums[++i] < nums[lo]) {
+                if (i == hi) break;
+            }
+            
+            while (nums[lo] < nums[--j]) {
+                if (j == lo) break;
+            }
+            
+            if (i < j) {
+              swap(nums, i, j);
+            } else {
+                break;
+            }
+        }
+        
+        swap(nums, lo, j);
+        return j;
+    }
+    
+    void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp; 
+    }
+}
+```
+
+## Solution 3
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        
+        for (int value: nums) {
+            pq.add(value);
+            if (pq.size() == k + 1) {
+                pq.poll();
+            }
+            // System.out.println(pq);
+        }
+        
+        return pq.peek();
+    }
+}
+```
+## Solution - Quick Select
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int n = nums.length;
+        int lo = 0;
+        int hi = n - 1;
+        while (lo < hi) {
+            int j = partition(nums, lo, hi);
+            if (j < n - k) {
+                lo = j + 1;
+            } else if (n - k < j) {
+                hi = j - 1;
+            } else {
+                return nums[n - k];
+            }
+        }
+        return nums[n - k];
+    }
+    
+    int partition(int[] nums, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
+        
+        while (true) {
+            while (nums[++i] < nums[lo]) {
+                if (i == hi) break;
+            }
+            
+            while (nums[lo] < nums[--j]) {
+                if (j == lo) break;
+            }
+            
+            if (i < j) {
+              swap(nums, i, j);
+            } else {
+                break;
+            }
+        }
+        
+        swap(nums, lo, j);
+        return j;
+    }
+    
+    void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp; 
+    }
+}
+```
