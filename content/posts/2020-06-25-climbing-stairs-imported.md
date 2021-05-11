@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "Insert delete get random O(1)"
+title:  "Climbing Stairs"
 date: "2020-06-25"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium"]
+tags:  ["leetcode", "easy", "dp", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,92 +12,65 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-Design a data structure that supports all following operations in average O(1) time.
+![Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 
-- insert(val): Inserts an item val to the set if not already present.
-- remove(val): Removes an item val from the set if present.
-- getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.
+You are climbing a stair case. It takes n steps to reach to the top.
 
-Example:
-```
-// Init an empty set.
-RandomizedSet randomSet = new RandomizedSet();
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
-// Inserts 1 to the set. Returns true as 1 was inserted successfully.
-randomSet.insert(1);
-
-// Returns false as 2 does not exist in the set.
-randomSet.remove(2);
-
-// Inserts 2 to the set, returns true. Set now contains [1,2].
-randomSet.insert(2);
-
-// getRandom should return either 1 or 2 randomly.
-randomSet.getRandom();
-
-// Removes 1 from the set, returns true. Set now contains [2].
-randomSet.remove(1);
-
-// 2 was already in the set, so return false.
-randomSet.insert(2);
-
-// Since 2 is the only number in the set, getRandom always return 2.
-randomSet.getRandom();
-```
-
-Solution:
+Note: Given n will be a positive integer.
 
 ```java
-class RandomizedSet {
-    private Random RANDOM = new Random();
-    private Map<Integer, Integer> valueToIndex = new HashMap<>();
-    private List<Integer> values = new ArrayList<>();
+Example 1:
 
-    /** Initialize your data structure here. */
-    public RandomizedSet() {
-        
+Input: 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+
+Example 2:
+
+Input: 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+```
+
+## Recursive Solution:
+
+```java
+class Solution {
+    public int climbStairs(int n) {
+        return climbStairs(0, n);
     }
-    
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
-    public boolean insert(int val) {
-        Integer index = valueToIndex.get(val);
-        if (index != null) {
-            return false;
-        }
-        values.add(val);
-        valueToIndex.put(val, values.size() - 1);
-        return true;
-    }
-    
-    /** Removes a value from the set. Returns true 
-    if the set contained the specified element. */
-    public boolean remove(int val) {
-        Integer index = valueToIndex.remove(val);
-        if (index == null) {
-            return false;
-        }
-        int lastIndex = values.size() - 1;
-        if (index != lastIndex) {
-            Integer prev = values.get(lastIndex);
-            values.set(index, prev);
-            valueToIndex.put(prev, index);
-        }
-        
-        values.remove(lastIndex);
-        return true;
-    }
-    
-    /** Get a random element from the set. */
-    public int getRandom() {
-        int index = RANDOM.nextInt(valueToIndex.size());
-        return values.get(index);
-    }
+    int climbStairs(int i, int n) {
+        if (i > n) return 0;
+        if (i == n) return 1;
+        return climbStairs(i + 1, n) + climbStairs(i + 2, n);
+    } 
 }
+```
 
-/**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet obj = new RandomizedSet();
- * boolean param_1 = obj.insert(val);
- * boolean param_2 = obj.remove(val);
- * int param_3 = obj.getRandom();
- */
+## Recursive Solution with Memo
+
+```java
+class Solution {
+    public int climbStairs(int n) {
+        int[] memo = new int[n + 1];
+        return climbStairs(0, n, memo);
+    }
+    int climbStairs(int i, int n, int[] memo) {
+        if (i > n) return 0;
+        if (i == n) return 1;
+        
+        if (memo[i] > 0) {
+            return memo[i];
+        }     
+        return memo[i] = climbStairs(i + 1, n, memo) + climbStairs(i + 2, n, memo);
+    } 
+}
+```

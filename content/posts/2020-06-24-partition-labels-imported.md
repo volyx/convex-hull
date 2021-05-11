@@ -1,9 +1,9 @@
 ---
 author: "volyx"
-title:  "Climbing Stairs"
+title:  "763. Partition Labels"
 date: "2020-06-24"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "easy"]
+tags:  ["leetcode", "medium", "string", "two-pointers"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -12,60 +12,51 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-You are climbing a stair case. It takes n steps to reach to the top.
+![763. Partition Labels](https://leetcode.com/problems/partition-labels/)
 
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+A string s of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
 
-Note: Given n will be a positive integer.
-
+```txt
 Example 1:
-```
-Input: 2
-Output: 2
-Explanation: There are two ways to climb to the top.
-1. 1 step + 1 step
-2. 2 steps
+
+Input: s = "ababcbacadefegdehijhklij"
+Output: [9,7,8]
+Explanation:
+The partition is "ababcbaca", "defegde", "hijhklij".
+This is a partition so that each letter appears in at most one part.
+A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits s into less parts.
 ```
 
-Example 2:
-```
-Input: 3
-Output: 3
-Explanation: There are three ways to climb to the top.
-1. 1 step + 1 step + 1 step
-2. 1 step + 2 steps
-3. 2 steps + 1 step
-```
+Note:
 
-Recursive Solution:
+- s will have length in range [1, 500].
+- s will consist of lowercase English letters ('a' to 'z') only.
+
+## Solution
 
 ```java
 class Solution {
-    public int climbStairs(int n) {
-        return climbStairs(0, n);
+    public List<Integer> partitionLabels(String s) {
+        int[] last = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            last[c - 'a'] = Math.max(i, last[c - 'a']);
+        }
+        int i = 0;
+        int j = 0;
+        int count = 0;
+        List<Integer> res = new ArrayList<>();
+        while (i < s.length()) {
+            char c = s.charAt(i);
+            count++;
+            j = Math.max(last[c - 'a'], j);
+            if (i == j) {
+                res.add(count);
+                count = 0;
+            }
+            i++;
+        }
+        return res;
     }
-    int climbStairs(int i, int n) {
-        if (i > n) return 0;
-        if (i == n) return 1;
-        return climbStairs(i + 1, n) + climbStairs(i + 2, n);
-    } 
 }
 ```
-
-Recursive Solution with Memo
-```java
-class Solution {
-    public int climbStairs(int n) {
-        int[] memo = new int[n + 1];
-        return climbStairs(0, n, memo);
-    }
-    int climbStairs(int i, int n, int[] memo) {
-        if (i > n) return 0;
-        if (i == n) return 1;
-        
-        if (memo[i] > 0) {
-            return memo[i];
-        }     
-        return memo[i] = climbStairs(i + 1, n, memo) + climbStairs(i + 2, n, memo);
-    } 
-}
