@@ -92,7 +92,6 @@ class Solution {
     void dfs(int node, int parent, int time) {
         disc[node] = time;
         low[node] = time;
-        
         for (int n : G[node]) {
             if (n == parent) continue;
             if (disc[n] == 0) {

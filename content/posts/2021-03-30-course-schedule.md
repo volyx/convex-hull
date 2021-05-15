@@ -3,7 +3,7 @@ author: "volyx"
 title:  "207. Course Schedule"
 date: "2021-03-30"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "graph", "topological"]
+tags:  ["leetcode", "medium", "graph", "topological", "dfs", "kosaraju"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -136,3 +136,75 @@ class Solution {
     }
 }
 ```
+
+## Solution - Kosaraju Algorithm
+
+```java
+class Solution {
+    int[] visited;
+    int[] who;
+    Stack<Integer> st = new Stack<>();
+    List<Integer>[] G;
+    List<Integer>[] revG;
+    int count = 0;
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        visited = new int[numCourses];
+        who = new int[numCourses];
+        G =  new List[numCourses];
+        revG =  new List[numCourses];
+        
+        for (int i = 0; i < numCourses; i++) {
+             G[i] = new ArrayList<>();
+             revG[i] = new ArrayList<>();
+        }
+        
+        for (int[] pr: prerequisites) {
+            int before = pr[0];
+            int after = pr[1];
+            G[before].add(after);
+            revG[after].add(before);
+        }
+        
+        for (int i = 0; i < numCourses; i++) {
+            if (visited[i] == 0) {
+                dfs(i);
+            }
+        }
+        
+        Arrays.fill(visited, 0);
+        
+        while (st.size() > 0) {
+            int n = st.pop();
+            if (visited[n] == 0) {
+                count++;
+                dfs1(n, n);
+            }        
+        }
+        
+        System.out.println(Arrays.toString(who));
+        
+        return numCourses == count;
+    }
+    
+    void dfs(int i) {
+        visited[i] = 1;
+        for (int u: G[i]) {
+            if (visited[u] == 0) {
+                dfs(u);
+            }
+        }
+        st.push(i);
+    }
+    
+    void dfs1(int i, int rep) {
+        visited[i] = 1;
+        who[i] = rep;
+        for (int u: revG[i]) {
+            if (visited[u] == 0) {
+                dfs1(u, rep);
+            }
+        }
+    }
+}
+```
+
