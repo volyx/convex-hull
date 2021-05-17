@@ -1,7 +1,7 @@
 ---
 author: "volyx"
-title:  "63. Unique Paths II"
-date: "2021-05-16"
+title:  "276. Paint Fence"
+date: "2021-05-17"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
 tags:  ["leetcode", "medium", "dp"]
 categories: ["leetcode"]
@@ -12,40 +12,41 @@ categories: ["leetcode"]
 # weight: 2
 ---
 
-[63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
+[276. Paint Fence](https://leetcode.com/problems/paint-fence/)
 
-A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
+You are painting a fence of n posts with k different colors. You must paint the posts following these rules:
 
-The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+- Every post must be painted exactly one color.
+- At most one pair of adjacent fence posts can have the same color.
 
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-
-An obstacle and space is marked as 1 and 0 respectively in the grid.
+Given the two integers n and k, return the number of ways you can paint the fence.
 
 ```txt
 Example 1:
 
-Input: obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
-Output: 2
-Explanation: There is one obstacle in the middle of the 3x3 grid above.
-There are two ways to reach the bottom-right corner:
-1. Right -> Right -> Down -> Down
-2. Down -> Down -> Right -> Right
-```
+Input: n = 3, k = 2
+Output: 6
+Explanation: All the possibilities are shown.
+Note that painting all the posts red or all the posts green is invalid because there can only be at most one pair of adjacent posts that are the same color.
 
-```txt
 Example 2:
 
-Input: obstacleGrid = [[0,1],[0,0]]
+Input: n = 1, k = 1
 Output: 1
+
+Example 3:
+
+Input: n = 7, k = 2
+Output: 42
 ```
+
+![ex1](/images/2021-05-17-ex1.png)
 
 Constraints:
 
-- m == obstacleGrid.length
-- n == obstacleGrid[i].length
-- 1 <= m, n <= 100
-- obstacleGrid[i][j] is 0 or 1.
+- 1 <= n <= 50
+- 1 <= k <= 105
+- The answer is guaranteed to be in the range [0, 231 - 1] for the given n and k.
 
 ## Solution
 
