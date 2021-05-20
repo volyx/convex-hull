@@ -3,7 +3,7 @@ author: "volyx"
 title:  "139. Word Break"
 date: "2021-05-20"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "linked-list"]
+tags:  ["leetcode", "medium", "dp", "memoization"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
