@@ -19,8 +19,8 @@ Given two integers x and y, calculate the Hamming distance.
 Note:
 0 ≤ x, y < 231.
 
+```txt
 Example:
-```
 Input: x = 1, y = 4
 
 Output: 2
@@ -50,5 +50,24 @@ class Solution {
     
     public int hammingDistance(int x, int y) {
         return Integer.bitCount(x ^ y);
+    }
+
+        /*
+    1   (0 0 0 1)
+    4   (0 1 0 0)
+    
+    */
+    
+    public int hammingDistance3(int x, int y) {
+        int count = 0;
+        while (x != 0 || y != 0) {
+            if ((x & 1) != (y & 1)) {
+                count++;
+            }
+            
+            x = x >> 1;
+            y = y >> 1;
+        }
+        return count;
     }
 }
