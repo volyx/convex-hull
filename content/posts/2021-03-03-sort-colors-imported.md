@@ -3,7 +3,7 @@ author: "volyx"
 title:  "75. Sort Colors"
 date: "2021-03-03"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium", "sort"]
+tags:  ["leetcode", "medium", "sort","repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -81,3 +81,36 @@ class Solution {
         }
     }
 }
+```
+
+## Solution 2
+
+```java
+class Solution {
+    public void sortColors(int[] colors) {
+         int c0 = 0; // rightmost boundary of zeros
+         int c2 = colors.length - 1; //  the leftmost boundary of twos 
+         int curr = 0; // the current element under the consideration.
+         while (curr <= c2) {
+          if (colors[curr] == 0) {
+            swap(c0, curr, colors);
+            c0++;
+            curr++;   
+          } else if (colors[curr] == 1) {
+            curr++;
+          } else if (colors[curr] == 2) {
+            swap(c2, curr, colors);
+            c2--;
+          }
+         }
+    }
+
+    
+    void swap(int i, int j, int[] array) {
+     int temp = array[i];
+     array[i] = array[j];
+     array[j] = temp;
+    }
+
+}
+```

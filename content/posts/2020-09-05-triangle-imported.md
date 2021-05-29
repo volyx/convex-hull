@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Triangle"
 date: "2020-09-05"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium"]
+tags:  ["leetcode", "medium","dp","repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -55,3 +55,27 @@ class Solution {
         return tree.get(0).get(0);
     }
 }
+```
+
+## Solution 2
+
+```java
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        if (n == 1) return triangle.get(0).get(0);
+        int i = n - 2;
+        while (i >= 0) {
+            List<Integer> level = triangle.get(i);
+            List<Integer> nextLevel = triangle.get(i + 1);
+            for (int row = 0; row < level.size(); row++) {
+                int min = Math.min(nextLevel.get(row), nextLevel.get(row + 1));
+                int value = min + level.get(row);
+                level.set(row, value);
+            }
+            i--;
+        }
+        return triangle.get(0).get(0);
+    }
+}
+```
