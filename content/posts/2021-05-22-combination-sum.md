@@ -85,3 +85,44 @@ class Solution {
     }
 }
 ```
+
+## Solution 04.06.2021
+
+```java
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        
+        List<Integer> current = new ArrayList<>();
+        
+        back(candidates, 0, target, current, res);
+        
+        return res;
+    }
+    
+    void back(int[] candidates, 
+              int index,
+              int target,
+              List<Integer> current,
+              List<List<Integer>> res
+             ) {
+        if (target == 0) {
+            res.add(new ArrayList<>(current));
+            return;
+        }
+        
+        for (int i = index; i < candidates.length; i++) {
+            int candidate = candidates[i];
+            int remainder = target - candidate;
+            if (remainder < 0) continue;
+            if (current.size() > 0 
+                && candidate < current.get(current.size() - 1)) {
+                continue;
+            }
+            current.add(candidate);
+            back(candidates, index, remainder, current, res);
+            current.remove(current.size() - 1);
+        }
+    }
+}
+```
