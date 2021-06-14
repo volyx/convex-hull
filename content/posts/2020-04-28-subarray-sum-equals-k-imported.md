@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Subarray Sum Equals K"
 date: "2020-04-28"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode"]
+tags:  ["leetcode", "prefix-sum", "repeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -20,13 +20,13 @@ Input:nums = [1,1,1], k = 2
 Output: 2
 
 Note:
-```
-    The length of the array is in range [1, 20,000].
-    The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
-```
+
+- The length of the array is in range [1, 20,000].
+- The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
 
 Hints
-```
+
+```txt
 Hide Hint #1  
     Will Brute force work here? Try to optimize it.
 Hide Hint #2  
@@ -57,3 +57,28 @@ class Solution {
         return counter;
     }
 }
+
+## Solution 14-06-2021
+
+```java
+class Solution {
+    
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> prefix = new HashMap<>();
+        int count = 0;
+        int sum = 0;
+        prefix.put(0, 1);
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            
+            if (prefix.containsKey(sum - k)) {
+                count = count + prefix.get(sum - k);
+            }
+            prefix.put(sum, prefix.getOrDefault(sum, 0) + 1);
+        }
+        
+        return count;
+    }
+
+}
+```
