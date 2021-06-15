@@ -130,3 +130,55 @@ class Solution {
     }
 }
 ```
+
+## Solution 15-06-2021
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> levels = new ArrayList<>();
+        dfs(0, root, levels);
+        return levels;
+    }
+
+    void dfs(int level, TreeNode root, List<Integer> levels) {
+        if (root == null) {
+           return;
+        }
+        add(level, root.val, levels); // 2 5
+        dfs(level + 1, root.left, levels);
+        dfs(level + 1, root.right, levels);
+    }
+
+
+    // 0 1 2 3 4 -> 5
+    // []
+    void add(int level, int val, List<Integer> levels) {
+        // first element on level
+        if (levels.size() == level) {
+            levels.add(val);
+            return;
+        }
+
+        // remove previous, add new element
+        levels.remove(level);
+        levels.add(level, val);
+    }
+
+}
+```

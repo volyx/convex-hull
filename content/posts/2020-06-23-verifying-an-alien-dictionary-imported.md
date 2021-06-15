@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Verifying an Alien Dictionary"
 date: "2020-06-23"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "easy", "repeat"]
+tags:  ["leetcode", "easy", "tripeat"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -16,25 +16,21 @@ In an alien language, surprisingly they also use english lowercase letters, but 
 
 Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
 
+```txt
 Example 1:
 
-```
 Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
 Output: true
 Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
-```
 
 Example 2:
 
-```
 Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
 Output: false
 Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
 
 Example 3:
 
-```
 Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
 Output: false
 Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character (More info).
@@ -88,3 +84,41 @@ class Solution {
     }
 
 }
+
+
+## Solution 15-06-2021
+
+```java
+class Solution {
+    public boolean isAlienSorted(String[] words, String order) {
+        for (int i = 0; i < words.length - 1; i++) {
+            String w1 = words[i];
+            String w2 = words[i + 1];
+            if (less(w1, w2, order)) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    boolean less(String w1, String w2, String order) {
+        int len1 = w1.length();
+        int len2 = w2.length();
+        
+        for (int i = 0; i < Math.min(len1, len2); i++) {
+            int idx1 = order.indexOf(w1.charAt(i));
+            int idx2 = order.indexOf(w2.charAt(i));
+            if (idx1 < idx2) {
+                return true;
+            } else if (idx1 == idx2) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return len1 <= len2;
+    }
+}
+```
