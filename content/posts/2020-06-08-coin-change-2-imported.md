@@ -3,7 +3,7 @@ author: "volyx"
 title:  "Coin Change 2"
 date: "2020-06-08"
 # description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags:  ["leetcode", "medium"]
+tags:  ["leetcode", "medium", "dp"]
 categories: ["leetcode"]
 # series: ["Themes Guide"]
 # aliases: ["migrate-from-jekyl"]
@@ -14,8 +14,9 @@ categories: ["leetcode"]
 
 You are given coins of different denominations and a total amount of money. Write a function to compute the number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
 
+```txt
 Example 1:
-```
+
 Input: amount = 5, coins = [1, 2, 5]
 Output: 4
 Explanation: there are four ways to make up the amount:
@@ -23,31 +24,30 @@ Explanation: there are four ways to make up the amount:
 5=2+2+1
 5=2+1+1+1
 5=1+1+1+1+1
-```
 
 Example 2:
-```
+
 Input: amount = 3, coins = [2]
 Output: 0
 Explanation: the amount of 3 cannot be made up just with coins of 2.
-```
 
 Example 3:
-```
+
 Input: amount = 10, coins = [10] 
 Output: 1
 ```
- 
 
 Note:
 
 You can assume that
+
 - 0 <= amount <= 5000
 - 1 <= coin <= 5000
 - the number of coins is less than 500
 - the answer is guaranteed to fit into signed 32-bit integer
 
-Recursive Solution
+## Recursive Solution
+
 ```java
 class Solution {
     public int change(int amount, int[] coins) {
@@ -61,7 +61,8 @@ class Solution {
 }
 ```
 
-Recursive with Memo
+## Recursive with Memo
+
 ```java
 class Solution {
     public int change(int amount, int[] coins) {
@@ -81,7 +82,7 @@ class Solution {
 }
 ```
 
-DP Solution:
+## DP Solution
 
 ```java
 class Solution {
@@ -102,3 +103,25 @@ class Solution {
         return dp[coins.length][amount];
     }
 }
+```
+
+## One Dimensionl DP
+
+```java
+class Solution {
+    public int change(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+       
+        for (int coin: coins) {
+            for (int i = coin; i < dp.length; i++) {
+                if (i - coin >= 0) {
+                    dp[i] += dp[i - coin];
+                }
+            }
+        }
+        
+        return dp[amount];
+    }
+}
+```
